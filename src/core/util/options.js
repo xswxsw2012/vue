@@ -26,6 +26,7 @@ import {
  * how to merge a parent option value and a child option
  * value into the final value.
  */
+debugger
 const strats = config.optionMergeStrategies
 
 /**
@@ -390,6 +391,7 @@ export function mergeOptions (
   child: Object,
   vm?: Component
 ): Object {
+  // debugger
   if (process.env.NODE_ENV !== 'production') {
     checkComponents(child)
   }

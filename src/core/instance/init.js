@@ -15,12 +15,18 @@ let uid = 0
 export function initMixin (Vue: Class<Component>) {
   Vue.prototype._init = function (options?: Object) {
     const vm: Component = this
+    // console.dir('vm', vm)
+    // debugger
+    console.log('this', this)
+    console.dir(vm.constructor)
+      debugger
     // a uid
     vm._uid = uid++
 
     let startTag, endTag
     /* istanbul ignore if */
     if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
+      console.log(11)
       startTag = `vue-perf-start:${vm._uid}`
       endTag = `vue-perf-end:${vm._uid}`
       mark(startTag)
@@ -35,6 +41,7 @@ export function initMixin (Vue: Class<Component>) {
       // internal component options needs special treatment.
       initInternalComponent(vm, options)
     } else {
+
       vm.$options = mergeOptions(
         resolveConstructorOptions(vm.constructor),
         options || {},
